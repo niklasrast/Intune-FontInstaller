@@ -617,7 +617,7 @@ $logFile = ('{0}\{1}.log' -f "C:\Windows\Logs", [System.IO.Path]::GetFileNameWit
 Start-Transcript -path $logFile -Append
 
     #Remove package registration in registry
-    Remove-ItemProperty -Path "HKLM:\SOFTWARE\OS\Microsoft-Font-Store" -Name "OpenSans" -Force 
+    Remove-ItemProperty -Path "HKLM:\SOFTWARE\COMPANY\Microsoft-Font-Store" -Name "OpenSans" -Force 
 
     $fontsFolderPath = Get-SpecialFolder($CSIDL_FONTS)
     Process-Arguments
