@@ -592,13 +592,13 @@ $logFile = ('{0}\{1}.log' -f "C:\Windows\Logs", [System.IO.Path]::GetFileNameWit
 Start-Transcript -path $logFile -Append
 
     #Test if registry folder exists
-    if ($true -ne (test-Path -Path "HKLM:\SOFTWARE\OS")) {
-        New-Item -Path "HKLM:\SOFTWARE\" -Name "OS" -Force
+    if ($true -ne (test-Path -Path "HKLM:\SOFTWARE\COMPANY")) {
+        New-Item -Path "HKLM:\SOFTWARE\" -Name "COMPANY" -Force
     }
 
     #Register package in registry
-    New-Item -Path "HKLM:\SOFTWARE\OS\" -Name "OS-Font-Installer"
-    New-ItemProperty -Path "HKLM:\SOFTWARE\OS\OS-Font-Installer" -Name "Font1" -PropertyType "String" -Value "Font1" -Force
+    New-Item -Path "HKLM:\SOFTWARE\COMPANY\" -Name "Font-Installer"
+    New-ItemProperty -Path "HKLM:\SOFTWARE\COMPANY\Font-Installer" -Name "Font1" -PropertyType "String" -Value "Font1" -Force
 
     $fontsFolderPath = Get-SpecialFolder($CSIDL_FONTS)
     Process-Arguments
